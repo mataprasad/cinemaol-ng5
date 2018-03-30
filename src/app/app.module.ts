@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { MoviesUpcomingComponent } from './components/movies-upcoming/movies-upcoming.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'movies', component: MoviesComponent }
+  { path: 'movies', component: MoviesComponent },
+  { path: 'movies-up', component: MoviesUpcomingComponent }
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const routes: Routes = [
     HomeComponent,
     ContactComponent,
     AboutComponent,
-    MoviesComponent
+    MoviesComponent,
+    MoviesUpcomingComponent
   ],
   imports: [
     BrowserModule,
