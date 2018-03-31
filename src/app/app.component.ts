@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,NgZone,OnInit} from '@angular/core';
 
 import { CommonService } from './services/api-proxy-common.service'
 import { ServiceBus } from './services/service-bus.service';
@@ -8,10 +8,10 @@ import { ServiceBus } from './services/service-bus.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public IP :string;
-  constructor(private commonService:CommonService,
+  constructor(private zone:NgZone,private commonService:CommonService,
     private serviceBus:ServiceBus){
   }
 
@@ -20,6 +20,14 @@ export class AppComponent {
     this.commonService.getClientIp().then(resp=>{
       this.IP=resp.json().origin;
       this.serviceBus.IP=this.IP;
+    
     });
   }
+
+  onSetx(){
+   
+    this.IP="90";
+    this.serviceBus.IP=this.IP;
+  }
 }
+  
