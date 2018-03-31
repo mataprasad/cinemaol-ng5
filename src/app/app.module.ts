@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';  
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -11,6 +12,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MoviesUpcomingComponent } from './components/movies-upcoming/movies-upcoming.component';
+
+import { DIContainer } from './app.di.container'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,12 +38,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   exports: [ 
     RouterModule 
   ],
-  providers: [],
+  providers: DIContainer.Providers,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

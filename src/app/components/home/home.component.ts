@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GlobalConfig } from '../../app.global.config';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public Url:string;
+  constructor(private config :GlobalConfig) { }
 
   ngOnInit() {
+    this.Url=this.config.ApiBaseUrl;
   }
 
 }

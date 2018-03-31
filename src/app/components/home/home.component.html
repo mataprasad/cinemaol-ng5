@@ -1,0 +1,82 @@
+<div style="height: 350px;">
+    <div style="width: 620px; float: left; height: 300px;">
+       <div class="panel">
+          <div class="container">
+             <div class="wt-rotator">
+                <div class="screen">
+                   <noscript>
+                      <img src="" alt="" />
+                   </noscript>
+                </div>
+                <div class="c-panel">
+                   <div class="thumbnails">
+                      <ul>
+                         <li></li>
+                         <li><a href="images/movieImages/" title=""></a></li>
+                         <input [(ngModel)]="username"/>
+                         {{username}}
+                         {{Url}}
+                      </ul>
+                   </div>
+                   <div class="buttons">
+                      <div class="prev-btn"></div>
+                      <div class="play-btn"></div>
+                      <div class="next-btn"></div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div align="center"
+       style="width: 350px; float: right; height: 300px; border: 1px solid #000000;">
+       <div
+          style="border-style: none none solid none; border-width: 1px; border-color: #000000; width: 350px; height: 30px; background-color: #6600CC;">
+          <a
+             style="font-size: 15pt; color: White; display: block; line-height: 30px; text-align: justify; margin-left: 7px;">BOOK
+          YOUR TICKETS HERE</a>
+       </div>
+       <h1></h1>
+       <form >
+          <div align="center" style="width: 250px">
+             <br />
+             <table class="style1">
+                <tr>
+                   <td align="left">Select a Movie --</td>
+                </tr>
+                <tr>
+                   <td align="left">
+                      <select id="ddlShowMovie" name="ddlShowMovie" onchange="fn_OnMovieChange();">
+                         <option value="0">--SELECT--</option>
+                      </select>
+                   </td>
+                </tr>
+                <tr>
+                   <td align="left">Select a ShowDate --</td>
+                </tr>
+                <tr>
+                   <td align="left">
+                      <select id="ddlShowDate" name="ddlShowDate" onchange="fn_OnDateChange();">
+                         <option value="0">--SELECT--</option>
+                      </select>
+                   </td>
+                </tr>
+                <tr>
+                   <td align="left">Select a ShowTime --</td>
+                </tr>
+                <tr>
+                   <td align="left">
+                      <select id="ddlShowTime" name="ddlShowTime">
+                         <option value="0">--SELECT--</option>
+                      </select>
+                   </td>
+                </tr>
+             </table>
+             <br />
+             <div style="float: right">
+                <input type="image" src="assets/images/appImages/go.png" id="btnGo" title="GO" alt=""  style=" width:40px; height:40px;" />
+             </div>
+          </div>
+       </form>
+    </div>
+ </div>
