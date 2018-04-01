@@ -17,17 +17,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit()
   {
+    this.makeAPiCall();
+  }
+
+  makeAPiCall(){
     this.commonService.getClientIp().then(resp=>{
       this.IP=resp.json().origin;
       this.serviceBus.IP=this.IP;
     
     });
   }
-
   onSetx(){
    
     this.IP="90";
     this.serviceBus.IP=this.IP;
+    this.makeAPiCall();
   }
 }
   

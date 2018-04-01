@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';  
+import {
+  ReactiveFormsModule,
+  FormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
@@ -14,7 +21,8 @@ import { AboutComponent } from './components/about/about.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MoviesUpcomingComponent } from './components/movies-upcoming/movies-upcoming.component';
 
-import { DIContainer } from './app.di.container'
+import { DIContainer } from './app.di.container';
+import { CascadeDdlComponent } from './cascade-ddl/cascade-ddl.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +31,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'movies', component: MoviesComponent },
-  { path: 'movies-up', component: MoviesUpcomingComponent }
+  { path: 'movies-up', component: MoviesUpcomingComponent },
+  { path: 'cascade', component: CascadeDdlComponent }
 ];
 
 @NgModule({
@@ -35,13 +44,15 @@ const routes: Routes = [
     ContactComponent,
     AboutComponent,
     MoviesComponent,
-    MoviesUpcomingComponent
+    MoviesUpcomingComponent,
+    CascadeDdlComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   exports: [ 
     RouterModule 

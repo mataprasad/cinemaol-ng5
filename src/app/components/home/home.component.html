@@ -9,22 +9,21 @@
                    </noscript>
                 </div>
                 <div class="c-panel">
-                   <div class="thumbnails">
-                      <ul>
-                          {{IP}}  
-                         <li></li>
-                         <li><a href="images/movieImages/" title=""></a></li>
-                         <input [(ngModel)]="username"/>
-                         {{username}}
-                         {{Url}}
-                      </ul>
-                   </div>
-                   <div class="buttons">
-                      <div class="prev-btn"></div>
-                      <div class="play-btn"></div>
-                      <div class="next-btn"></div>
-                   </div>
-                </div>
+                        <div class="thumbnails">
+                            <ul>
+                                    <li><a href="assets/images/movieImages/1.jpg" title=""></a></li>
+                                    <li><a href="assets/images/movieImages/1.jpg" title=""></a></li>
+                            </ul>
+                        </div>
+                        <div class="buttons">
+                            <div class="prev-btn">
+                            </div>
+                            <div class="play-btn">
+                            </div>
+                            <div class="next-btn">
+                            </div>
+                        </div>
+                    </div>
              </div>
           </div>
        </div>
@@ -38,46 +37,48 @@
           YOUR TICKETS HERE</a>
        </div>
        <h1></h1>
-       <form >
-          <div align="center" style="width: 250px">
-             <br />
-             <table class="style1">
-                <tr>
-                   <td align="left">Select a Movie --</td>
-                </tr>
-                <tr>
-                   <td align="left">
-                      <select id="ddlShowMovie" name="ddlShowMovie" onchange="fn_OnMovieChange();">
-                         <option value="0">--SELECT--</option>
-                      </select>
-                   </td>
-                </tr>
-                <tr>
-                   <td align="left">Select a ShowDate --</td>
-                </tr>
-                <tr>
-                   <td align="left">
-                      <select id="ddlShowDate" name="ddlShowDate" onchange="fn_OnDateChange();">
-                         <option value="0">--SELECT--</option>
-                      </select>
-                   </td>
-                </tr>
-                <tr>
-                   <td align="left">Select a ShowTime --</td>
-                </tr>
-                <tr>
-                   <td align="left">
-                      <select id="ddlShowTime" name="ddlShowTime">
-                         <option value="0">--SELECT--</option>
-                      </select>
-                   </td>
-                </tr>
-             </table>
-             <br />
-             <div style="float: right">
-                <input type="image" src="assets/images/appImages/go.png" id="btnGo" title="GO" alt=""  style=" width:40px; height:40px;" />
-             </div>
-          </div>
-       </form>
+       <app-cascade-ddl></app-cascade-ddl>
     </div>
  </div>
+ <script type="text/javascript">
+   
+    var $panel = $(".panel");
+    var $container = $panel.find(".container");
+
+    $container.wtRotator({
+        width: 620,
+        height: 300,
+        thumb_width: 24,
+        thumb_height: 24,
+        button_width: 24,
+        button_height: 24,
+        button_margin: 5,
+        auto_start: true,
+        delay: 3000,
+        transition: "fade",
+        transition_speed: 800,
+        block_size: 75,
+        vert_size: 55,
+        horz_size: 50,
+        cpanel_align: "BR",
+        timer_align: "top",
+        display_thumbs: false,
+        display_dbuttons: false,
+        display_playbutton: false,
+        display_thumbimg: false,
+        display_side_buttons: false,
+        tooltip_type: "",
+        display_numbers: false,
+        display_timer: false,
+        mouseover_pause: true,
+        cpanel_mouseover: false,
+        text_mouseover: false,
+        text_effect: "fade",
+        text_sync: true,
+        shuffle: true,
+        block_delay: 25,
+        vstripe_delay: 73,
+        hstripe_delay: 183
+    });
+
+</script>
