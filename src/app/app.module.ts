@@ -21,7 +21,8 @@ import { AboutComponent } from './components/about/about.component';
 import { MoviesComponent } from './components/movies/movies.component';
 
 import { DIContainer } from './app.di.container';
-import { CascadeDdlComponent } from './cascade-ddl/cascade-ddl.component'
+import { CascadeDdlComponent } from './cascade-ddl/cascade-ddl.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'cascade', component: CascadeDdlComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'}
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -43,7 +45,8 @@ const routes: Routes = [
     ContactComponent,
     AboutComponent,
     MoviesComponent,
-    CascadeDdlComponent
+    CascadeDdlComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
