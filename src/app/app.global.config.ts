@@ -1,6 +1,20 @@
+import {Injectable} from '@angular/core';
+
+
+
+@Injectable()
 export class GlobalConfig {
     
-    public ApiBaseUrl: string ="http://httpbin.org" ;
-    public HttpBinBaseUrl: string ="http://httpbin.org" ;
+    ApiBaseUrl:string ="http://httpbin.org" ;
+    HttpBinBaseUrl:string ="http://httpbin.org" ;
+
+    constructor(){
+     
+    }
     
 }
+
+
+export function setupGlobalConfig() {
+    return Object.freeze(new GlobalConfig());
+  }

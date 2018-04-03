@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   
   public IP:string;
   public Url:string;
-  constructor(private zone:NgZone,private config :GlobalConfig,private serviceBus:ServiceBus) { }
+  constructor(private zone:NgZone,private config:GlobalConfig,private serviceBus:ServiceBus) { }
 
   ngOnInit() {
     this.Url=this.config.ApiBaseUrl;
