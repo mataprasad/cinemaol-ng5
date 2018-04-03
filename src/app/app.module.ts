@@ -19,20 +19,19 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { MoviesUpcomingComponent } from './components/movies-upcoming/movies-upcoming.component';
 
 import { DIContainer } from './app.di.container';
 import { CascadeDdlComponent } from './cascade-ddl/cascade-ddl.component'
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'movies', component: MoviesComponent },
-  { path: 'movies-up', component: MoviesUpcomingComponent },
-  { path: 'cascade', component: CascadeDdlComponent }
+  { path: 'cascade', component: CascadeDdlComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -44,7 +43,6 @@ const routes: Routes = [
     ContactComponent,
     AboutComponent,
     MoviesComponent,
-    MoviesUpcomingComponent,
     CascadeDdlComponent
   ],
   imports: [

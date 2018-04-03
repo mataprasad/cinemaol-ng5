@@ -28,12 +28,13 @@ a {
     background-color: #CCCCCC;
 }
 
+.menu_active,
 .menu_ a:hover {
     text-decoration: none;
-    color: #CCCCCC;
+    color: #CCCCCC !important;
     font-size: 15px;
     font-weight: bold;
-    background-color: #6600CC;
+    background-color: #6600CC !important;
 }
 
 #wrapper {
