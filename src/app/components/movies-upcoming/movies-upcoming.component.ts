@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+
+declare const $:any;
 
 @Component({
   selector: 'app-movies-upcoming',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesUpcomingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    $("#accordion").accordion({
+      collapsible: true
+    });
+    $("#radio").buttonset();
   }
 
 }

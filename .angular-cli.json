@@ -18,9 +18,16 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "styles.css"
+            "styles.css",
+            "assets/resources/jquery-ui.css",
+            "assets/resources/wt-rotator.css"
         ],
-        "scripts": [],
+        "scripts": [
+            "assets/resources/jquery-1.6.1.min.js",
+            "assets/resources/jquery.easing.1.3.min.js",
+            "assets/resources/jquery.wt-rotator.min.js",
+            "assets/resources/jquery-ui-1.8.20.min.js"
+        ],
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",
