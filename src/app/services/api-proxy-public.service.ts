@@ -15,7 +15,7 @@ export class ApiProxyPublicService extends ApiProxyPublic{
   }
 
   FillMovieist():Promise<Response>{
-    let url = `${this.config.HttpBinBaseUrl}/ip`;
+    let url = `${this.config.FirebaseApiBaseUrl}/get-show-movie-list`;
     return this.http.get(url)
       .toPromise();
   }

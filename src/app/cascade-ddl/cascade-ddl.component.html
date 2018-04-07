@@ -10,7 +10,7 @@
                 <tr>
                    <td align="left">
                       <select required formControlName="movie" #ddlMovie (change)="fnOnMovieChange(ddlMovie.value)">
-                      <option *ngFor="let opt of movieList" value="{{opt.value}}">{{opt.text}}</option>
+                      <option *ngFor="let opt of movieList" value="{{opt.value}}">{{opt.key}}</option>
                       </select>
                    </td>
                 </tr>
@@ -20,7 +20,7 @@
                 <tr>
                    <td align="left">
                       <select required  formControlName="date" #ddlDate (change)="fnOnDateChange(ddlMovie.value,ddlDate.value)">
-                      <option *ngFor="let opt of dateList" value="{{opt.value}}">{{opt.text}}</option>
+                      <option *ngFor="let opt of dateList" value="{{opt.value}}">{{opt.key}}</option>
                       </select>
                    </td>
                 </tr>
@@ -30,7 +30,7 @@
                 <tr>
                    <td align="left">
                       <select required formControlName="time" #ddlTime >
-                         <option *ngFor="let opt of timeList" value="{{opt.value}}">{{opt.text}}</option>
+                         <option *ngFor="let opt of timeList" value="{{opt.value}}">{{opt.key}}</option>
                       </select>
                    </td>
                 </tr>

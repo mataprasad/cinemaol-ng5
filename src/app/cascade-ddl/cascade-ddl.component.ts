@@ -38,7 +38,7 @@ export class CascadeDdlComponent implements OnInit {
       time: new FormControl("0")
   });
   
-    this.http.get("http://localhost:5000/Service/FillMovieist").subscribe(
+    this.apiPublic.FillMovieist().then(
       resp => { 
         this.movieList=resp.json();
       },
