@@ -4,7 +4,9 @@ import { GlobalConfig } from '../app.global.config'
 import 'rxjs/add/operator/toPromise';
 
 export abstract class ApiProxyPublic{
-  abstract FillMovieist():Promise<Response>;
+  abstract FillMovieList():Promise<Response>;
+  abstract FillDateList(movieName:string):Promise<Response>;
+  abstract FillTimeList(movieName:string,date:string):Promise<Response>;
 }
 
 @Injectable()
@@ -14,8 +16,20 @@ export class ApiProxyPublicService extends ApiProxyPublic{
     super();
   }
 
-  FillMovieist():Promise<Response>{
+  FillMovieList():Promise<Response>{
     let url = `${this.config.FirebaseApiBaseUrl}/get-show-movie-list`;
+    return this.http.get(url)
+      .toPromise();
+  }
+
+  FillDateList(movieName:string):Promise<Response>{
+    let url = `${this.config.FirebaseApiBaseUrl}/get-show-date-list/${movieName}`;
+    return this.http.get(url)
+      .toPromise();
+  }
+
+  FillTimeList(movieName:string,date:string):Promise<Response>{
+    let url = `${this.config.FirebaseApiBaseUrl}/get-show-time-list/${movieName}/${date}`;
     return this.http.get(url)
       .toPromise();
   }

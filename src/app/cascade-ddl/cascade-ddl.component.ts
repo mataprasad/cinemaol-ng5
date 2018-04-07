@@ -38,9 +38,9 @@ export class CascadeDdlComponent implements OnInit {
       time: new FormControl("0")
   });
   
-    this.apiPublic.FillMovieist().then(
+    this.apiPublic.FillMovieList().then(
       resp => { 
-        this.movieList=resp.json();
+        this.movieList = resp.json().unshift({key:"--Select Movie --",value:"0"});
       },
       error => {
         console.error(error);
@@ -49,10 +49,9 @@ export class CascadeDdlComponent implements OnInit {
   }
 
   fnOnMovieChange(obj){
-
-    this.http.post("http://localhost:5000/Service/FillDateList",{ pMovieTitle:obj}).subscribe(
+    this.apiPublic.FillDateList(obj).then(
       resp => { 
-        this.dateList=resp.json();
+        this.dateList=resp.json().unshift({key:"--Select Date --",value:"0"});
       },
       error => {
         console.error(error);
@@ -62,9 +61,9 @@ export class CascadeDdlComponent implements OnInit {
 
   fnOnDateChange(obj,dt){
  
-    this.http.post("http://localhost:5000/Service/FillTimeList",{ pMovieTitle:obj,pMovieDate:dt}).subscribe(
+    this.apiPublic.FillTimeList(obj,dt).then(
       resp => { 
-        this.timeList=resp.json();
+        this.timeList=resp.json().unshift({key:"--Select Time --",value:"0"});
       },
       error => {
         console.error(error);
