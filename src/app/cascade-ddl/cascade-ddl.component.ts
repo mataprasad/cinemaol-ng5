@@ -9,19 +9,20 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { ApiProxyPublic } from '../services/api-proxy-public.service'
 
 @Component({
   selector: 'app-cascade-ddl',
   templateUrl: './cascade-ddl.component.html',
   styleUrls: ['./cascade-ddl.component.css']
-})
+}) 
 export class CascadeDdlComponent implements OnInit {
 
   movieList:Object[];
   dateList:Object[];
   timeList:Object[];
   myform: FormGroup;
-  constructor(private http:Http) { }
+  constructor(private http:Http,private apiPublic:ApiProxyPublic) { }
 
   ngOnInit() {
     this.movieList=[];
