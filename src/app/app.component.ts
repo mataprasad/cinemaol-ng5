@@ -1,7 +1,18 @@
-import { Component ,NgZone,OnInit} from '@angular/core';
+import {
+  Component,
+  NgZone,
+  OnInit
+} from '@angular/core';
 
-import { CommonService } from './services/api-proxy-common.service'
-import { ServiceBus } from './services/service-bus.service';
+import {
+  CommonService
+} from './services/api-proxy-common.service'
+
+import {
+  ServiceBus
+} from './services/service-bus.service';
+
+import { GlobalConfig } from './app.global.config'
 
 @Component({
   selector: 'app-root',
@@ -10,28 +21,26 @@ import { ServiceBus } from './services/service-bus.service';
 })
 export class AppComponent implements OnInit {
 
-  public IP :string;
-  constructor(private zone:NgZone,private commonService:CommonService,
-    private serviceBus:ServiceBus){
+  public IP: string;
+
+  constructor(private zone: NgZone, private commonService: CommonService,
+      private serviceBus: ServiceBus,public config:GlobalConfig) {}
+
+  ngOnInit() {
+      this.makeAPiCall();
   }
 
-  ngOnInit()
-  {
-    this.makeAPiCall();
-  }
+  makeAPiCall() {
+      this.commonService.getClientIp().then(resp => {
+          this.IP = resp.json().origin;
+          this.serviceBus.IP = this.IP;
 
-  makeAPiCall(){
-    this.commonService.getClientIp().then(resp=>{
-      this.IP=resp.json().origin;
-      this.serviceBus.IP=this.IP;
-    
-    });
+      });
   }
-  onSetx(){
-   
-    this.IP="90";
-    this.serviceBus.IP=this.IP;
-    this.makeAPiCall();
+  onSetx() {
+
+      this.IP = "90";
+      this.serviceBus.IP = this.IP;
+      this.makeAPiCall();
   }
 }
-  

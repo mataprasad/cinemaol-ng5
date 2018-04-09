@@ -1,7 +1,9 @@
-import { Component,NgZone, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
+import { Component,NgZone, OnInit, OnChanges, SimpleChanges, Inject,Input,Output,ViewChild,
+  AfterViewInit,ElementRef ,EventEmitter } from '@angular/core';
 
 import { GlobalConfig } from '../../app.global.config';
 import { ServiceBus } from '../../services/service-bus.service';
+import { ApiProxyPublic } from '../../services/api-proxy-public.service'
 import { environment } from '../../../environments/environment';
 
 declare const $:any;
@@ -13,10 +15,22 @@ declare const $:any;
 })
 export class HomeComponent implements OnInit {
   
+
+
+  canInitSlidder(y:boolean){
+    
+    if(y)
+    {
+      this.initSlider();
+    }
+ }
+
   public IP:string;
   public Url:string;
   public name:string;
-  constructor(private zone:NgZone,private config:GlobalConfig,private serviceBus:ServiceBus) { }
+  public sliderMovies:any[];
+  constructor(private zone:NgZone,private config:GlobalConfig,private serviceBus:ServiceBus,private apiPublic:ApiProxyPublic ) { }
+
 
   ngOnInit() {
     this.Url=this.config.ApiBaseUrl;
@@ -24,8 +38,22 @@ export class HomeComponent implements OnInit {
     this.serviceBus.change.subscribe(updated => {
       this.IP=this.serviceBus.IP;
     });
-    this.initSlider();
+    this.fnInitSlidderImages();
     this.name = environment.name;
+  }
+
+  private fnInitSlidderImages(){
+    this.apiPublic.FillMovieSlider().then(
+      resp => { 
+        var data = resp.json();
+        console.log(data);
+        this.sliderMovies=data;
+        //this.initSlider();
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
 
   private initSlider(){

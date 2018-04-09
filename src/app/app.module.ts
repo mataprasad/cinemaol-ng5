@@ -24,6 +24,8 @@ import { DIContainer } from './app.di.container';
 import { CascadeDdlComponent } from './cascade-ddl/cascade-ddl.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 
+import { OnCreate } from './directives/on-create-directive'
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -46,7 +48,8 @@ const routes: Routes = [
     AboutComponent,
     MoviesComponent,
     CascadeDdlComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OnCreate
   ],
   imports: [
     BrowserModule,

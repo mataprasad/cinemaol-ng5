@@ -9,14 +9,12 @@
                    </noscript>
                     </div>
                     <div class="c-panel">
-                        <div class="thumbnails">
+                        <div class="thumbnails"  >
                             <ul>
-                                <li>
-                                    <a href="assets/images/movieImages/1.jpg" title=""></a>
+                                <li *ngFor="let img of sliderMovies;last as l" (onCreate)="canInitSlidder(l)">
+                                    <a href='{{img.Movie_ImageURL}}' ></a>
                                 </li>
-                                <li>
-                                    <a href="assets/images/movieImages/1.jpg" title=""></a>
-                                </li>
+                              
                             </ul>
                         </div>
                         <div class="buttons">
