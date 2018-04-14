@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
     
     if(y)
     {
-      this.initSlider();
+     
+      setTimeout(()=>{  
+        this.initSlider();
+   },1000);
     }
  }
 
@@ -33,6 +36,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.Url=this.config.ApiBaseUrl;
     this.IP=this.serviceBus.IP;
     this.serviceBus.change.subscribe(updated => {
@@ -40,13 +44,14 @@ export class HomeComponent implements OnInit {
     });
     this.fnInitSlidderImages();
     this.name = environment.name;
+    
   }
 
   private fnInitSlidderImages(){
     this.apiPublic.FillMovieSlider().then(
       resp => { 
         var data = resp.json();
-        console.log(data);
+      
         this.sliderMovies=data;
         //this.initSlider();
       },

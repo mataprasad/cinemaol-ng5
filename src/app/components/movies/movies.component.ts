@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ApiProxyPublic } from '../../services/api-proxy-public.service'
+
 declare const $:any;
 
 @Component({
@@ -9,13 +11,41 @@ declare const $:any;
 })
 export class MoviesComponent implements OnInit {
 
-  constructor() { }
+  public sliderMovies:any[];
+  constructor(private apiPublic:ApiProxyPublic ) { }
 
   ngOnInit() {
-    $("#accordion").accordion({
-      collapsible: true
-      });
-      $("#radio").buttonset();
+    this.fnInitSlidderImages();  
+  }
+
+  canInitSlidder(y:boolean){
+  
+    if(y)
+    {
+      setTimeout(()=>{
+       
+        $("#accordion").fadeIn();
+        $("#accordion").accordion({
+          collapsible: true
+        });
+        $("#loader-div").fadeOut(); 
+      },1000);
+    }
+ }
+
+  private fnInitSlidderImages(){
+    this.apiPublic.FillMovieSlider().then(
+      resp => { 
+        var data = resp.json(); 
+        console.log(data);
+        this.sliderMovies=data;
+        
+         
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
 
 }

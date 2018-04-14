@@ -10,6 +10,48 @@
     border-collapse: collapse;
 }
 
+.hidden-x-on{
+    display: none;
+}
+
+.hidden-x-off{
+    display: block;
+}
+
+.visibility-x-off{
+    visibility: hidden;
+}
+
+.visibility-x-on{
+    visibility: visible;
+}
+
+
 .style2 {
     width: 180px;
+}
+
+.loader-x{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    margin-top: -18px;
+    margin-left: -18px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, .7) url('assets/resources/loader.gif') center no-repeat;
+    z-index: 4;
+}
+
+.loader-conatiner-x{
+   
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        background-color: #000;
+        border: 1px solid #000;
+        position: relative;
+       
+        height: 300px;
+        overflow: hidden;
 }

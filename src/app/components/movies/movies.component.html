@@ -1,66 +1,71 @@
-<div style="height: 35px; padding: 0px; margin: 0px; width: 100%; margin-bottom: 15px; display: block; line-height: 35px; vertical-align: middle; text-align: left; color: #FFFFFF; font-size: 15pt; font-weight: bold">
-    <!--<div id="radio">
-        <a><label>RUNNING MOVIES</label></a>
-        <a><label>UPCOMMING MOVIES</label></a>
-    </div>-->
+<div id="loader-div" class="loader-conatiner-x">
+<div class="loader-x" ></div>
 </div>
-<div id="accordion">
-    <h3><a href="#">KAHANI</a></h3>
-    <div>
-        <div style="padding: 5px; margin: 0px auto 0px auto; width: 100%;">
-
-            <div style="padding: 0px; margin: 5px auto 5px auto; border: 1px solid #000000; width: 600px; height: 300px;">
-                <img src="/images/movieImages/1.jpg" style=" height:300px; width:600px;" alt="" />
-            </div>
-            <div style="padding: 0px; margin: 0px auto 0px auto; width: 100%; height: 218px;">
-                <div style="height: 20px;">
+<div style="display: none;"  id="accordion">
+        <ng-container *ngFor="let movie of sliderMovies;last as l" (onCreate)="canInitSlidder(l)">
+            <h3><a>{{movie.Movie_Title}}</a></h3>
+            <div>
+                <div style="padding: 5px; margin: 0px auto 0px auto; width: 100%;">
+    
+                    <div style="padding: 0px; margin: 5px auto 5px auto; border: 1px solid #000000; width: 600px; height: 300px;">
+                        <img src="{{movie.Movie_ImageURL}}" style=" height:300px; width:600px;" alt="" />
+                    </div>
+                    <div style="padding: 0px; margin: 0px auto 0px auto; width: 100%; ">
+                        <div style="height: 20px;">
+                        </div>
+                        <table border="1" class="style1">
+                            <tr>
+                                <td class="style2">
+                                    <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">DIRECTOR : </span>
+                                </td>
+                                <td align="left">
+                                    {{movie.Movie_Director}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">
+                                    <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">CASTS : </span>
+                                </td>
+                                <td rowspan="4">
+                                    <div align="left">
+                                        <ul>
+                                            <li *ngFor="let a of movie.Movie_Casts.split(',')">
+                                                {{a}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">RELEASE DATE : </span>
+                                </td>
+                                <td align="left">
+                                    {{movie.Movie_ReleaseDate | appDateCustom:330:'DD-MMMM-YYYY'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="style2">
+                                    <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">LANGUAGE : </span>
+                                </td>
+                                <td align="left">
+                                    {{movie.Movie_Language}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <table border="1" class="style1">
-                    <tr>
-                        <td class="style2">
-                            <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">DIRECTOR : </span>
-                        </td>
-                        <td align="left">
-                            ABC
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">
-                            <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">CASTS : </span>
-                        </td>
-                        <td rowspan="4">
-                            <div align="left" style="height: 85px">
-                                XYZ,ABC,PQr,QWE
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="style2" style="border-color: black; border-style: none; border-width: 1px;">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="style2">
-                            <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">RELEASE DATE : </span>
-                        </td>
-                        <td align="left">
-                            01/01/2017
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="style2">
-                            <span style="height: 30px; display: block; line-height: 30px; vertical-align: middle; text-align: left; color: #000000; font-weight: bold; font-size: 15pt; padding: 0px 0px 0px 10px; margin: 0px">LANGUAGE : </span>
-                        </td>
-                        <td align="left">
-                            HINDI
-                        </td>
-                    </tr>
-                </table>
             </div>
-        </div>
+        </ng-container>
+    
     </div>
-</div>
+    

@@ -24,7 +24,9 @@ import { DIContainer } from './app.di.container';
 import { CascadeDdlComponent } from './cascade-ddl/cascade-ddl.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 
-import { OnCreate } from './directives/on-create-directive'
+import { OnCreate } from './directives/on-create-directive';
+import { AppDatePipe } from './pipe/app-date.pipe';
+import { AppDateCustomPipe } from './pipe/app-date-custom.pipe'
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -49,7 +51,9 @@ const routes: Routes = [
     MoviesComponent,
     CascadeDdlComponent,
     PageNotFoundComponent,
-    OnCreate
+    OnCreate,
+    AppDatePipe,
+    AppDateCustomPipe
   ],
   imports: [
     BrowserModule,
